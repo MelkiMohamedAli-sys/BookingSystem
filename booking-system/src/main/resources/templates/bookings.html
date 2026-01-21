@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Bookings</title>
+</head>
+<body>
+    <h2>All Bookings</h2>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Booking Date</th>
+            <th>Status</th>
+        </tr>
+        <tr th:each="booking : ${bookings}">
+            <td th:text="${booking.id}"></td>
+            <td th:text="${booking.bookingDate}"></td>
+            <td th:text="${booking.status}"></td>
+        </tr>
+    </table>
+
+    <h2>Create Booking</h2>
+    <form th:action="@{/api/bookings}" method="post">
+        <button type="submit">Create Booking</button>
+    </form>
+</body>
+</html>
